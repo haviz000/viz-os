@@ -4,6 +4,7 @@
   background-image: url('assets/background.jpg');
   background-size: cover;
   background-position: center;
+  position: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
