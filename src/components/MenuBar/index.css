@@ -16,6 +16,52 @@ img {
   -webkit-backdrop-filter: blur(50px);
 }
 
+/* Additional styles for mobile mode */
+.menu-bar.mobile-mode {
+  justify-content: center;
+  padding: 10px 0; /* Add padding for better spacing */
+}
+
+.menu-bar.mobile-mode .left {
+  display: none; /* Hide left content in mobile mode */
+}
+
+.menu-bar.mobile-mode .right {
+  width: auto;
+  margin: 0;
+}
+
+.progress-bar-container {
+  width: 1000px;
+  height: 30px;
+  border: none;
+  padding-top: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.running-cat {
+  width: 50px; /* Lebar kucing */
+  height: 50px; /* Tinggi kucing */
+  background-image: url('assets/train.png'); /* Ganti dengan path gambar kucing */
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: cat-run 5s linear infinite; /* Ubah durasi animasi sesuai kebutuhan */
+}
+
+@keyframes cat-run {
+  0% { left: -50px; } /* Mulai dari luar area container */
+  100% { left: 100%; } /* Hingga mencapai ujung kanan container */
+}
+
 .menu-bar .left {
   display: flex;
   align-items: center;
@@ -35,6 +81,7 @@ img {
   margin-left: 20px;
   color: rgba(255, 255, 255, 0.95);
   font-size: 14px;
+  cursor: pointer;
 }
 
 .menu-bar .left .active {

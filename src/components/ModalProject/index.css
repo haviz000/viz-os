@@ -1,0 +1,58 @@
+.ModalProject {
+  width: 460px;
+  height: 430px;
+  color: white;
+  background: rgba(0, 0, 0, 0.43);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  margin-left: 31%;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-mode {
+  width: 100%;
+  margin-left: 0;
+}
+
+.container-list-card {
+  /* Your existing styles */
+}
+
+/* Additional styles for mobile mode */
+.mobile-mode .container-list-card {
+  width: 100%;
+  padding: 0;
+}
+
+.container-icon-project {
+  position: sticky;
+  display: flex;
+  margin-left: 8px;
+  margin-top: 4px;
+}
+
+.container-icon-project img {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.container-list-card {
+  width: 450px;
+  height: 390px;
+  justify-content: sticky;
+  left: 0;
+  padding-left: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto; 
+}
+
+.container-list-card::-webkit-scrollbar {
+    display: none;
+  }

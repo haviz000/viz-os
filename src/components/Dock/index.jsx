@@ -1,17 +1,16 @@
 import "./index.css";
 import AvatarImage from "./assets/avatar.jpg";
-import PhotosIcon from "./assets/photos.png";
 import FacetimeIcon from "./assets/facetime.png";
 import MessagesIcon from "./assets/messages.png";
 import MusicIcon from "./assets/music.png";
 import TrashIcon from "./assets/trash.png";
 import ProjectIcon from "./assets/project.png";
+
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
 const Dock = ({ isModalOpen, modalType }) => {
   const [isDevHovered, setIsDevHovered] = useState(false);
-  const [isPhotosHovered, setIsPhotosHovered] = useState(false);
   const [isMessagesHovered, setIsMessagesHovered] = useState(false);
   const [isFacetimeHovered, setIsFacetimeHovered] = useState(false);
   const [isMusicHovered, setIsMusicHovered] = useState(false);
@@ -22,9 +21,6 @@ const Dock = ({ isModalOpen, modalType }) => {
     switch (type) {
       case "dev":
         setIsDevHovered(true);
-        break;
-      case "photos":
-        setIsPhotosHovered(true);
         break;
       case "messages":
         setIsMessagesHovered(true);
@@ -51,9 +47,6 @@ const Dock = ({ isModalOpen, modalType }) => {
       case "dev":
         setIsDevHovered(false);
         break;
-      case "photos":
-        setIsPhotosHovered(false);
-        break;
       case "messages":
         setIsMessagesHovered(false);
         break;
@@ -74,6 +67,9 @@ const Dock = ({ isModalOpen, modalType }) => {
     }
   };
 
+
+
+
   const handleClickAvatar = () => {
     isModalOpen(true);
     modalType("avatar");
@@ -84,10 +80,22 @@ const Dock = ({ isModalOpen, modalType }) => {
     modalType("facetime");
   };
 
+  const handleClickProject = () => {
+    isModalOpen(true);
+    modalType("project");
+  };
+
   const handleClickMessages = () => {
     window.open("https://ngl.link/haviz.tasmara", "_blank");
   };
 
+  const handleClickTrash = () => {
+    window.open("https://www.instagram.com/stateofisrael", "_blank");
+  };
+
+  const handleClickMusic = () => {
+    window.open('https://open.spotify.com/playlist/4mm3x2M7S5tAcTy43fGMvI?si=73bcaca6dfe64335', "_blank");
+  };
   return (
     <div className="dock">
       <div className="dock-container">
@@ -114,6 +122,7 @@ const Dock = ({ isModalOpen, modalType }) => {
           className="li-1"
           onMouseEnter={() => handleMouseEnter("project")}
           onMouseLeave={() => handleMouseLeave("project")}
+          onClick={handleClickProject}
         >
           <div
             className="name"
@@ -127,19 +136,6 @@ const Dock = ({ isModalOpen, modalType }) => {
             src={ProjectIcon}
             alt="Project"
           />
-        </li>
-        <li
-          className="li-7"
-          onMouseEnter={() => handleMouseEnter("photos")}
-          onMouseLeave={() => handleMouseLeave("photos")}
-        >
-          <div
-            className="name"
-            style={{ display: isPhotosHovered ? "block" : "none" }}
-          >
-            My fav photos
-          </div>
-          <img className="ico" src={PhotosIcon} alt="photos" />
         </li>
         <li
           className="li-8"
@@ -186,9 +182,9 @@ const Dock = ({ isModalOpen, modalType }) => {
             className="name"
             style={{ display: isMusicHovered ? "block" : "none" }}
           >
-            my recently played
+            my playlist
           </div>
-          <img className="ico" src={MusicIcon} alt="music" />
+          <img className="ico" src={MusicIcon} alt="music" onClick={handleClickMusic}/>
         </li>
         <li
           className="li-bin li-15"
@@ -199,9 +195,9 @@ const Dock = ({ isModalOpen, modalType }) => {
             className="name"
             style={{ display: isTrashHovered ? "block" : "none" }}
           >
-            throw it away!
+            will redirect you to the fuck*n trash!
           </div>
-          <img className="ico ico-bin" src={TrashIcon} alt="trash" />
+          <img className="ico ico-bin" src={TrashIcon} alt="trash" onClick={handleClickTrash} />
         </li>
       </div>
     </div>
